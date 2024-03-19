@@ -16,8 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from home.views import HomeView  # Importing HomeView from the home app views
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
-    path('smart/', include('notes.urls')), #path -- naming smart for notes's urls 
+    path('smart/', include('notes.urls')), #path -- naming smart for notes's urls   # Including URLs from the 'notes' app under 'smart/'
+    path('', HomeView.as_view(), name='home'),  # Mapping root URL to the HomeView class
 ]
+
