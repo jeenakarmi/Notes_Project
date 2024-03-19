@@ -21,7 +21,9 @@ from home.views import HomeView  # Importing HomeView from the home app views
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('smart/', include('notes.urls')), #path -- naming smart for notes's urls   # Including URLs from the 'notes' app under 'smart/'
+    path('', include('home.urls')),  #authorized\
     path('', HomeView.as_view(), name='home'),  # Mapping root URL to the HomeView class
+    path('smart/',include('notes.urls')) #path -- naming smart for notes's urls   # Including URLs from the 'notes' app under 'smart/'
 ]
+
 
