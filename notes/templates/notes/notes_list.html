@@ -2,7 +2,16 @@
 {% load static %}
 {% block content %}
 
-<h1>These are the notes: </h1>
+<div class="row">
+    <div class="col">
+        <div class="notes_list_heading text-center">
+            <h1 class="fs-4">These are the notes </h1>
+
+        </div>
+    </div>
+</div>
+
+
 <ul>
     {% for note in notes %}  <!-- for loop to get all notes -->
     <li class = "notes-li"> {{note.title}} </li>                   <!-- li tag to hold those notes -->
