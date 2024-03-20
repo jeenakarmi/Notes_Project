@@ -2,7 +2,19 @@
 {% load static %}
 {% block content %}
 
-    <h1>Hello</h1>
-    <p>You are viewing this from CLass based views</p>
-    
+    <div class="row">
+        <div class="col">
+            <div class="home-holder text-center">
+                <h1 class="fs-3">Hello! </h1>
+                <p>Welcome</p>
+                <a href="{% url 'notes.list' %}" class="btn-btn-success bth-sm">Go to Smart Notes</a>
+
+                <!-- <button type="submit" class="btn btn-lg Go to Smart Notes">
+                    <i class="fa fa-plus-circle fa-lg color"></i>
+                </button> -->
+
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
