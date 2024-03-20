@@ -2,21 +2,31 @@
 {% load static %}
 {% block content %}
 
+<!-- for heading of  note_list -->
 <div class="row">
     <div class="col">
-        <div class="notes_list_heading text-center">
+        <div class="notes_list_heading text-center mb-5">    <!-- centralized heading of notes listing and md-5 adds spacing vertically-->
             <h1 class="fs-4">These are the notes </h1>
 
         </div>
     </div>
 </div>
 
-
-<ul>
+<!-- for listing notes -->
+<div class="row">
     {% for note in notes %}  <!-- for loop to get all notes -->
-    <li class = "notes-li"> {{note.title}} </li>                   <!-- li tag to hold those notes -->
+        <div class="col-md-4">  <!-- 3 card in 1 row-->
+            <div class="card">
+                <div class="card-header">{{note.title }}</div>  <!--  card header: title of note -->
+                <div class="card-body">
+                    <!-- using pipe truncatechars -->
+                    <p>{{note.text|truncatechars:10 }}</p> <!-- showing only 10 characters of note detail -->
+                </div>
 
+            </div>
+        </div>
     {% endfor %}
-</ul>
+</div>
+
 
 {% endblock %}
