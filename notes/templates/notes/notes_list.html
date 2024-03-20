@@ -23,6 +23,14 @@
                     <p>{{note.text|truncatechars:10 }}</p> <!-- showing only 10 characters of note detail -->
                 </div>
 
+                <!-- for view Note button -->
+                <div class="card-footer">
+
+                    <!-- store the generated URL notes.detail  in a variable -->
+                    {% url 'notes.detail' pk=note.id as note_detail_url %}       <!-- spcific note access so needed pk as noteId -->
+                    <a href="{{ note_detail_url }}" class="btn btn-info btn-sm">View Note</a>   
+
+                </div>
             </div>
         </div>
     {% endfor %}
