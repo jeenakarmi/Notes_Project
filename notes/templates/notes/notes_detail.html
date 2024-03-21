@@ -1,14 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!-- specifying details -->
-    <h1>{{notes.title}}</h1>         <!-- for notes title -->
-    <p>{{notes.text}}</p>            <!-- for notes detail paragragh -->
-    
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- for detail page -->
+<div class="row justify-content-center ">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Notes Details</div>
+            <div class="card-body">
+                    <!-- specifying detail list of notes -->
+                    <h1 class="fs-5">{{notes.title}}</h1>         <!-- for notes title -->
+                    <p>{{notes.text}}</p>            <!-- for notes detail paragragh -->
+                    
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+ 
