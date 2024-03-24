@@ -5,7 +5,19 @@ class NotesForm(forms.ModelForm):
     class Meta:
         model = Notes
         fields = ('title' , 'text')
-        
+
+        # for layout 
+        # my-3:margin
+        widgets = {
+            'title' : forms.TextInput(attrs={'class' : 'form-control my-3'}),
+            'text' : forms.Textarea(attrs={'class' : 'form-control my-3'}),
+        }
+
+        # for naming noteContent-Title
+        labels ={
+            'text' : 'Your Note' 
+        }
+
 '''
     #only for django notes 
     def clean_title(self):
