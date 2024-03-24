@@ -7,6 +7,9 @@
 <div class="row-content-center">
     <div class = "col-md-8">
         <form action="{% url 'notes.new' %}" method="post">
+
+            {% csrf_token %}        <!-- For Security In Post Method -->
+            
             {{form}}         <!-- calling form -->
             <button type="submit" class="btn btn-sm btn-success">Submit</button>
            

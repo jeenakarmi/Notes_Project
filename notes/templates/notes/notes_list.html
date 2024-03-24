@@ -16,7 +16,7 @@
 <div class="row">
     {% for note in notes %}  <!-- for loop to get all notes -->
         <div class="col-md-4">  <!-- 3 card in 1 row-->
-            <div class="card">
+            <div class="card mb-4">         <!-- mb-4 : spacing between 2 notes vertically -->
                 <div class="card-header">{{note.title }}</div>  <!--  card header: title of note -->
                 <div class="card-body">
                     <!-- using pipe truncatechars -->
