@@ -16,6 +16,7 @@
             <div class="card-footer">
                 <a href="{% url 'notes.list' %} " class="btn btn-sm btn-primary">Back</a>
                 <a href="{% url 'notes.update' pk=notes.id %} " class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'notes.delete' pk=notes.id %} " class="btn btn-sm btn-danger">Delete</a>
             </div>
         </div>
     </div>
