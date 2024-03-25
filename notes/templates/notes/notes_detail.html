@@ -11,7 +11,11 @@
                     <!-- specifying detail list of notes -->
                     <h1 class="fs-5">{{notes.title}}</h1>         <!-- for notes title -->
                     <p>{{notes.text}}</p>            <!-- for notes detail paragragh -->
-                    
+            </div> 
+            <!-- for back and edit button in pages -->
+            <div class="card-footer">
+                <a href="{% url 'notes.list' %} " class="btn btn-sm btn-primary">Back</a>
+                <a href="{% url 'notes.update' pk=notes.id %} " class="btn btn-sm btn-warning">Edit</a>
             </div>
         </div>
     </div>
