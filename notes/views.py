@@ -1,18 +1,22 @@
 from django.shortcuts import render
 from .models import Notes #importing models that is created
 
-from django.views.generic import CreateView, ListView ,DetailView
+from django.views.generic import CreateView, ListView ,DetailView, UpdateView
 from .forms import NotesForm   #importing notesform
 
 # Create your views here.
+
+class NotesUpdateView(UpdateView):
+    model = Notes
+    success_url = '/smart/notes/'
+    form_class = NotesForm
+
 class NotesCreateView(CreateView):
     model = Notes
  
     #after successful creation of  new note, allows user to go  -- all list of notes
     success_url = '/smart/notes/'
     form_class = NotesForm      # fields = ['title', 'text']  # notes contain title and content text only
-
-
 
 class NotesListView(ListView):
     model = Notes 
