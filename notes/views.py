@@ -8,6 +8,8 @@ from .forms import NotesForm   #importing notesform
 class NotesDeleteView(DeleteView):
     model = Notes
     success_url = '/smart/notes/'
+    template_name ='notes/notes_delete.html'    # for solving naming error
+    
 
 class NotesUpdateView(UpdateView):
     model = Notes
