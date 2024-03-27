@@ -9,23 +9,38 @@ from .forms import NotesForm   #importing notesform
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-class NotesDeleteView(DeleteView):
+class NotesDeleteView(LoginRequiredMixin,DeleteView):
     model = Notes
     success_url = '/smart/notes/'
     template_name ='notes/notes_delete.html'    # for solving naming error
+    login_url = "/admin/"  
+
+    # available only for logged in users
+    def get_queryset(self):
+        return self.request.user.notes.all()
     
 
-class NotesUpdateView(UpdateView):
+class NotesUpdateView(LoginRequiredMixin,UpdateView):
     model = Notes
     success_url = '/smart/notes/'
     form_class = NotesForm
+    login_url = "/admin/"  
 
-class NotesCreateView(CreateView):
+    # available only for logged in users
+    def get_queryset(self):
+        return self.request.user.notes.all()
+
+class NotesCreateView(LoginRequiredMixin,CreateView):
     model = Notes
  
     #after successful creation of  new note, allows user to go  -- all list of notes
     success_url = '/smart/notes/'
     form_class = NotesForm      # fields = ['title', 'text']  # notes contain title and content text only
+    login_url = "/admin/"  
+
+    # available only for logged in users
+    def get_queryset(self):
+        return self.request.user.notes.all()
 
 class NotesListView(LoginRequiredMixin, ListView):
     model = Notes 
@@ -44,9 +59,14 @@ class NotesListView(LoginRequiredMixin, ListView):
 #     return render(request, 'notes/notes_list.html', {'notes': all_notes}) # renders created destination to notes template # defines notes
 '''
 
-class NotesDetailView(DetailView):
+class NotesDetailView(LoginRequiredMixin,DetailView):
     model = Notes
     context_object_name = "notes"
+    login_url = "/admin/"  
+
+    # available only for logged in users
+    def get_queryset(self):
+        return self.request.user.notes.all()
 
 # replaced by NotesDetailView
 '''
