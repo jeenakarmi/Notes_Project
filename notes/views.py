@@ -1,8 +1,12 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from .models import Notes #importing models that is created
 
 from django.views.generic import CreateView, ListView ,DetailView, UpdateView,DeleteView
 from .forms import NotesForm   #importing notesform
+
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 class NotesDeleteView(DeleteView):
@@ -23,9 +27,14 @@ class NotesCreateView(CreateView):
     success_url = '/smart/notes/'
     form_class = NotesForm      # fields = ['title', 'text']  # notes contain title and content text only
 
-class NotesListView(ListView):
+class NotesListView(LoginRequiredMixin, ListView):
     model = Notes 
     context_object_name = "notes"
+    login_url = "/admin/"  
+
+    # available only for logged in users
+    def get_queryset(self):
+        return self.request.user.notes.all()
 
 #replace by NotesListView class
 ''' 
