@@ -1,5 +1,7 @@
 from typing import Any
 from django.db.models.query import QuerySet
+from django.forms import BaseModelForm
+from django.http import HttpResponse,  HttpResponseRedirect
 from django.shortcuts import render
 from .models import Notes #importing models that is created
 
@@ -18,7 +20,6 @@ class NotesDeleteView(LoginRequiredMixin,DeleteView):
     # available only for logged in users
     def get_queryset(self):
         return self.request.user.notes.all()
-    
 
 class NotesUpdateView(LoginRequiredMixin,UpdateView):
     model = Notes
@@ -38,9 +39,11 @@ class NotesCreateView(LoginRequiredMixin,CreateView):
     form_class = NotesForm      # fields = ['title', 'text']  # notes contain title and content text only
     login_url = "/admin/"  
 
-    # available only for logged in users
-    def get_queryset(self):
-        return self.request.user.notes.all()
+    def form_valid(self, form): #checks all validation
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user #looks for user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 class NotesListView(LoginRequiredMixin, ListView):
     model = Notes 
