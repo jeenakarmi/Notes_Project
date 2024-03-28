@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <!-- specifying login form -->
+    {{form.as_p}}
+    <input type="submit" class = "btn btn-sm btn-success">
+
+</form>
+
+
+{% endblock %}
