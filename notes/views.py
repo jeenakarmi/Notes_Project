@@ -15,7 +15,7 @@ class NotesDeleteView(LoginRequiredMixin,DeleteView):
     model = Notes
     success_url = '/smart/notes/'
     template_name ='notes/notes_delete.html'    # for solving naming error
-    login_url = "/admin/"  
+    login_url = "/login/"  
 
     # available only for logged in users
     def get_queryset(self):
@@ -25,7 +25,7 @@ class NotesUpdateView(LoginRequiredMixin,UpdateView):
     model = Notes
     success_url = '/smart/notes/'
     form_class = NotesForm
-    login_url = "/admin/"  
+    login_url = "/login/"  
 
     # available only for logged in users
     def get_queryset(self):
@@ -37,7 +37,7 @@ class NotesCreateView(LoginRequiredMixin,CreateView):
     #after successful creation of  new note, allows user to go  -- all list of notes
     success_url = '/smart/notes/'
     form_class = NotesForm      # fields = ['title', 'text']  # notes contain title and content text only
-    login_url = "/admin/"  
+    login_url = "/login/"  
 
     def form_valid(self, form): #checks all validation
         self.object = form.save(commit=False)
@@ -48,7 +48,7 @@ class NotesCreateView(LoginRequiredMixin,CreateView):
 class NotesListView(LoginRequiredMixin, ListView):
     model = Notes 
     context_object_name = "notes"
-    login_url = "/admin/"  
+    login_url = "/login/"  
 
     # available only for logged in users
     def get_queryset(self):
@@ -65,7 +65,7 @@ class NotesListView(LoginRequiredMixin, ListView):
 class NotesDetailView(LoginRequiredMixin,DetailView):
     model = Notes
     context_object_name = "notes"
-    login_url = "/admin/"  
+    login_url = "/login/"  
 
     # available only for logged in users
     def get_queryset(self):
