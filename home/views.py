@@ -11,12 +11,11 @@ from django.contrib.auth.views import LoginView
 class LoginInterfaceView(LoginView):
     template_name = 'home/login.html'
 
+class LogoutInterfaceView(TemplateView):
+    template_name = 'home/logout.html'
 
 class HomeView(TemplateView):  #inherit from templateview
     #specifying home template that is used
     template_name = 'home/welcome.html'
 
-class AuthorizedViews(LoginRequiredMixin ,TemplateView): # login before templateview
-    template_name = 'home/authorized.html'
-    login_url = '/admin/'           #login url
 
