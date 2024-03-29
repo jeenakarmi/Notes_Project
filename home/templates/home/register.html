@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #f0f0f0; 
+    }
+    .card {
+        background-color: transparent;
+        box-shadow: 5px 10px 18px #888888;
+        border: white; 
+        margin-top: 20px;
+    }
+    .card-body {
+        background-color: transparent;
+        padding: 30px;
+    }
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        box-sizing: border-box;
+    }
+    .login-button {
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6"> <!-- Change the column size to col-md-6 for 50% width -->
+            <div class="card custom-margin"> 
+                <div class="card-body">
+                    <h2 class="text mb-4">Sign Up</h2>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <input type="submit" class="btn btn-sm btn-success" value="Sign up" name="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
