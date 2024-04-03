@@ -15,6 +15,7 @@ class NotesForm(forms.ModelForm):
 
         # for naming noteContent-Title
         labels ={
+            'title': 'Title',
             'text' : 'Your Note' 
         }
 
