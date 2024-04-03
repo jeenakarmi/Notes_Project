@@ -14,21 +14,35 @@
     <!-- for icon cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <style>
+        /* Custom CSS for hover effect */
+        .btn-outline-dark:hover {
+            background-color: rgb(87, 82, 196);
+        }
+
+        /* Custom CSS for navbar */
+        .custom-navbar {
+            /* Add your box-shadow with desired color */
+            background-color: 5px 10px 18px #888888;
+            border-bottom: 1px solid #999;
+        }
+    </style>
+
    
 </head>
 <body>
 
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-light custom-navbar">
         <div class="ms-auto">
 
             <!-- For logged in users -->
             {% if user.is_authenticated %}
-                <a href="{% url 'notes.list' %}" class="btn btn-outline-light">Home</a>
-                <a href="{% url 'notes.new' %}" class="btn btn-outline-light">Create</a>
-                <a href="{% url 'logout' %}" class="btn btn-outline-light">Logout</a>
+                <a href="{% url 'notes.list' %}" class="btn btn-outline-dark">Home</a>
+                <a href="{% url 'notes.new' %}" class="btn btn-outline-dark">Create</a>
+                <a href="{% url 'logout' %}" class="btn btn-outline-dark">Logout</a>
             {% else %}
-                <a href="{% url 'login' %}" class="btn btn-outline-light">Login</a>
-                <a href="{% url 'signup' %}" class="btn btn-outline-light">Signup</a>
+                <a href="{% url 'login' %}" class="btn btn-outline-dark">Login</a>
+                <a href="{% url 'signup' %}" class="btn btn-outline-dark">Signup</a>
             {% endif %}
 
         </div>
