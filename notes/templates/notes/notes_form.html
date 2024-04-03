@@ -3,6 +3,7 @@
 
 {% block content %}
 
+
 <!-- displaying form -->
 <div class="row justify-content-center">
     <div class = "col-md-6">
@@ -28,11 +29,17 @@
             </div>
             <!-- for Back button in single edit page -->
             <div class="card-footer">
-                <a href="{% url 'notes.list' %} " class="btn btn-sm btn-primary">Back</a>
+                <!-- <a href="{% url 'notes.list' %} " class="btn btn-sm btn-primary">Back</a> -->
+                <form action="{% url 'notes.list' %}" method="get" class="d-inline">
+                    <button type="submit" class="btn">
+                        <i class="far fa-circle-left fa-lg text-primary"></i>
+                        <span class="text-primary">Back</span>
+                    </button>   
+                </form>
             </div>
        </div>
     </div>
 </div>
 
 
-{% endblock %}
+{% endblock %}s

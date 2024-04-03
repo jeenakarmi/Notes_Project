@@ -14,9 +14,29 @@
             </div> 
             <!-- for back and edit button in pages -->
             <div class="card-footer">
-                <a href="{% url 'notes.list' %} " class="btn btn-sm btn-primary">Back</a>
+                <!-- <a href="{% url 'notes.list' %} " class="btn btn-sm btn-primary">Back</a>
                 <a href="{% url 'notes.update' pk=notes.id %} " class="btn btn-sm btn-warning">Edit</a>
-                <a href="{% url 'notes.delete' pk=notes.id %} " class="btn btn-sm btn-danger">Delete</a>
+                <a href="{% url 'notes.delete' pk=notes.id %} " class="btn btn-sm btn-danger">Delete</a> -->
+                <form action="{% url 'notes.list' %}" method="get" class="d-inline">
+                    <button type="submit" class="btn">
+                        <i class="far fa-circle-left fa-lg text-primary"></i>
+                    </button>   
+                </form>
+                
+                <form action="{% url 'notes.update' pk=notes.id %}" method="get" class="d-inline">
+                    <button type="submit" class="btn">
+                        <i class="far fa-edit fa-lg text-warning"></i>
+                    </button>
+                </form>
+                
+                <form action="{% url 'notes.delete' pk=notes.id %}" method="get" class="d-inline">
+                    {% csrf_token %} 
+                    <button type="submit" class="btn">
+                        <i class="far fa-trash-alt fa-lg text-danger"></i>
+                    </button>
+                </form>
+                
+                
             </div>
         </div>
     </div>

@@ -2,6 +2,15 @@
 {% load static %}
 {% block content %}
 
+<style>
+    .btn-purple {
+        background-color: rgb(87, 82, 196);
+        color: white;
+        padding: 5px 10px;
+    }
+</style>
+
+
 <!-- for heading of  note_list -->
 <div class="row">
     <div class="col">
@@ -25,12 +34,12 @@
 
                 <!-- for view Note button -->
                 <div class="card-footer">
-
-                    <!-- store the generated URL notes.detail  in a variable -->
-                    {% url 'notes.detail' pk=note.id as note_detail_url %}       <!-- spcific note access so needed pk as noteId -->
-                    <a href="{{ note_detail_url }}" class="btn btn-info btn-sm">View Note</a>   
-
+                    <!-- store the generated URL notes.detail in a variable -->
+                    {% url 'notes.detail' pk=note.id as note_detail_url %}
+                    <!-- Use Bootstrap classes to style the button -->
+                    <a href="{{ note_detail_url }}" class="btn btn-sm btn-purple">View Note</a>
                 </div>
+                
             </div>
         </div>
     {% endfor %}
