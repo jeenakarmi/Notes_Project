@@ -13,6 +13,17 @@
         font-family: 'Roboto', sans-serif;
         font-weight: normal;
     }
+
+    /* Remove borders from card components */
+    .card-header,
+    .card-body,
+    .card-footer {
+    border: none;
+    background-color: rgb(236, 236, 236) ;/* Set the background color to grey */
+    }
+    .card {
+        height: 180px; /* Adjust the height of card */
+    }
 </style>
 
 
@@ -31,10 +42,10 @@
     {% for note in notes %}  <!-- for loop to get all notes -->
         <div class="col-md-4">  <!-- 3 card in 1 row-->
             <div class="card mb-4">         <!-- mb-4 : spacing between 2 notes vertically -->
-                <div class="card-header">{{note.title }}</div>  <!--  card header: title of note -->
+                <div class="card-header fw-bold fs-5">{{note.title }}</div>  <!--  card header: title of note -->
                 <div class="card-body">
                     <!-- using pipe truncatechars -->
-                    <p>{{note.text|truncatechars:10 }}</p> <!-- showing only 10 characters of note detail -->
+                    <p>{{note.text|truncatechars:20 }}</p> <!-- showing only 10 characters of note detail -->
                 </div>
 
                 <!-- for view Note button -->
