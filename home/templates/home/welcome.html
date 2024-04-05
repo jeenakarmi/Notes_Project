@@ -3,17 +3,64 @@
 {% load static %}
 {% block content %}
 
+<style>
+    /* Style for the container holding the GIF image */
+    .gif-container {
+    text-align: center; /* Center align content */
+    margin-top: 5px; /* Add top margin */
+}
+
+.gif-image {
+    max-width: 50%; 
+    display: block; /* To center the image with margin: 0 auto */
+    /* margin: 0 auto; Center the image horizontally */
+    margin-top: 0px;
+}
+
+
+    /* Style for the button */
+    .btn-go-to-notes {
+        background-color: rgb(87, 82, 196); /* Set background color */
+        color: #fff; /* Set text color */
+        padding: 10px 20px; /* Add padding */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Add border radius */
+        text-decoration: none; /* Remove underline */
+        font-size: 15px; /* Set font size */
+    }
+
+   .btn-go-to-notes:hover {
+        background-color:rgb(110, 107, 170); /* Change background color on hover */
+    }
+
+    .welcome-message {
+    text-align: center; /* Align text to the right */
+    font-size: 24px; /* Set font size */
+    color: #333; /* Set text color */
+    margin-top: -15px; /* Add top margin */
+    font-family: 'Pacifico', cursive; /* Set cursive font family */
+    font-weight: bold; /* Set font weight */
+}
+ /* Style for top right button */
+ .bottom-right-button {
+        position: absolute; /* Position absolute to allow free positioning */
+        bottom: 20px; /* Distance from top */
+        right: 70px; /* Distance from right */
+    }
+
+
+</style>
+
     <div class="row">
         <div class="col">
             <div class="home-holder text-center">
-                <h1 class="fs-3">Hello! </h1>
-                <p>Welcome</p>
-                <a href="{% url 'notes.list' %}" class="btn-btn-success bth-sm">Go to Smart Notes</a>    <!-- button created -->
+                <p class="welcome-message">Welcome to JinifyNote</p> <!-- Welcome message -->
+                <h5>Jot it here, with JinifyNote dear, memories clear, forever here! </h5>
+                <div class="gif-container">   
+                    <img src="{% static 'images/notes.gif' %}" alt="Welcome Image" class="img-fluid">
+                </div>
 
-             
-                <!-- <button type="submit" class="btn btn-lg Go to Smart Notes">
-                    <i class="fa fa-plus-circle fa-lg color"></i>
-                </button> -->
+                <a href="{% url 'notes.list' %}" class="btn-go-to-notes bottom-right-button">Go to Smart Notes</a>    <!-- button created -->
 
             </div>
         </div>
