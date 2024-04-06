@@ -2,14 +2,38 @@
 {% load static %}
 {% block content %}
 
+<style>
+    .card-header,
+    .card-body,
+    .card-footer {
+    border: none;
+    background-color: rgb(236, 236, 236) ;/* Set the background color to grey */
+    }
+
+    .text-purple {
+    color:rgb(58, 203, 56);
+}
+
+.custom-card {
+        margin-top: 70px; /* Add margin to the top of the card */
+
+       
+    }
+</style>
+
 <!-- for detail page -->
 <div class="row justify-content-center ">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">Notes Details</div>
+    <h2 class="text-center">Your Thoughts' Archive 💭</h2>
+    <h4 class="text-center fw-light"> Welcome to Your Notes 📚</h4>
+    <div class="col-md-4">
+        <div class="card custom-card">
+            <div class="card-header">
+                <h5 class="fw-bold fs-5 mb-2"> 📃 Notes Details</h5>
+            </div>
+           
             <div class="card-body">
                     <!-- specifying detail list of notes -->
-                    <h1 class="fs-5">{{notes.title}}</h1>         <!-- for notes title -->
+                    <h1 class="fw-light-normal fs-5">{{notes.title}}</h1>         <!-- for notes title -->
                     <p>{{notes.text}}</p>            <!-- for notes detail paragragh -->
             </div> 
             <!-- for back and edit button in pages -->
@@ -25,7 +49,7 @@
                 
                 <form action="{% url 'notes.update' pk=notes.id %}" method="get" class="d-inline">
                     <button type="submit" class="btn">
-                        <i class="far fa-edit fa-lg text-warning"></i>
+                        <i class="far fa-edit fa-lg text-purple"></i>
                     </button>
                 </form>
                 
