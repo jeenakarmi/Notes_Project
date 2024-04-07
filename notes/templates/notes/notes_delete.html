@@ -4,15 +4,27 @@
 {% load static %}
 {% block content %}
 
-<div class="row justify-content-center">
-    <div class="col md-6">
-        <div class="confirm-message text-center">    <!-- for aligning in center -->
-            <form action="" method="post">
-                {% csrf_token %}        <!-- For Security In Post Method -->
-                <p>Are you sure you want to go ahead and delete your <q>{{notes.title}}</q> note?</p>
-                <p>Please consider carefully, as this action cannot be undone!</p>
-                <input type="submit" class="btn btn-sm btn-danger" value= "Confirm">
-            </form>
+<style>
+    .card {
+        margin-top: 150px; /* Adjust the value as needed */
+    }
+</style>
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+        <div class="card border-danger shadow">
+            <div class="card-body">
+                <h5 class="card-title text-danger text-center mb-4">Delete Confirmation</h5>
+                <div class="confirm-message text-center">
+                    <form action="" method="post">
+                        {% csrf_token %} <!-- For Security In Post Method -->
+                        <p class="mb-3">Are you sure you want to delete your note "<q>{{ notes.title }}</q>"?</p>
+                        <p class="text-muted mb-4">This action cannot be undone!</p>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-danger btn-sm">Confirm Deletion</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
