@@ -26,5 +26,4 @@ class NotesForm(forms.ModelForm):
         if 'Django' not in title:
             raise forms.ValidationError('Notes Should be about Django only! ')
         return title
-
-'''   
+'''

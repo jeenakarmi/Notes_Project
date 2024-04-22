@@ -1,9 +1,11 @@
-from django.contrib import admin
-from . import models
+# from django.contrib import admin
+# from . import models
 
-# Register your models here.
-class NotesAdmin(admin.ModelAdmin):
+# # Register your models here.
 
-    list_display = ('title',)  #for notes title detail (not anonymous)
+# # Adding Notes Model to Admin Panel in Django
+# class NotesAdmin(admin.ModelAdmin):
 
-admin.site.register(models.Notes, NotesAdmin) #registering models.Notes and NotesAdmin
+#     list_display = ('title',)  #for notes title detail (not anonymous)
+
+# admin.site.register(models.Notes, NotesAdmin) #registering models.Notes and NotesAdmin
