@@ -15,7 +15,7 @@ db.sqlite3
 *.sqlite3
 media/
 staticfiles/
-Notes_Project/settings.py
+# Notes_Project/settings.py
 
 # Environment files
 .env
