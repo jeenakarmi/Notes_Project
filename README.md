@@ -1,6 +1,8 @@
 # JinifyNote 📝
 
-Welcome to JinifyNote, personalized sticky note solution! JinifyNote is a Django-based application designed to help organize your thoughts and tasks effortlessly.
+JinifyNote, personalized sticky note solution! JinifyNote is a Django-based application designed to help organize your thoughts and tasks effortlessly.
+
+![JinifyNote Screenshot](https://github.com/jeenakarmi/Notes_Project/blob/main/Home.png)
 
 ## Features
 
@@ -14,7 +16,7 @@ Welcome to JinifyNote, personalized sticky note solution! JinifyNote is a Django
   
 - **Delete Note:** 🗑️ Remove sticky notes that are no longer needed or relevant.
 
----
+
 ## Setup Instructions
 
 ### Python Environment Setup:
@@ -79,5 +81,5 @@ Welcome to JinifyNote, personalized sticky note solution! JinifyNote is a Django
     - Once the server is running, you can explore the JinifyNote application.
     - Sign up for a new account or log in if you already have one.
     - Start creating, viewing, editing, and deleting your sticky notes as needed.
-
+---
 If you encounter any issues during the setup process or have any questions or feedback, feel free to reach out. Happy note-taking! 😊
