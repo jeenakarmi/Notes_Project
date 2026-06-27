@@ -69,8 +69,20 @@ JinifyNote, personalized sticky note solution! JinifyNote is a Django-based appl
 1. Once the dependencies are installed and the database configuration is updated, run the Django development server:
 
     ```
+    python manage.py migrate
+    ```
+
+    ```
     python manage.py runserver
     ```
+
+### Command Usage:
+
+```
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+```
 
 3. Access the Application:
 
